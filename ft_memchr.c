@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 10:06:57 by ozahidi           #+#    #+#             */
-/*   Updated: 2023/12/09 17:43:10 by ozahidi          ###   ########.fr       */
+/*   Created: 2024/01/04 15:27:19 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/04 15:31:14 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (str[i] == (unsigned char)c)
-			return (str + i);
+			return ((void *)(str + i));
 		i++;
 	}
 	return (NULL);

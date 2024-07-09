@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 10:49:35 by ozahidi           #+#    #+#             */
-/*   Updated: 2023/12/10 17:50:45 by ozahidi          ###   ########.fr       */
+/*   Created: 2024/01/04 15:37:28 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/05 16:00:10 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t			i;
-	size_t			j;
-	size_t			strlen_needle;
+	size_t	i;
+	size_t	needlelen;
 
 	i = 0;
-	strlen_needle = 0;
-	if (needle[i] == '\0')
+	if (!haystack && !len)
+		return (NULL);
+	if (needle[0] == '\0')
 		return ((char *)haystack);
+	needlelen = ft_strlen(needle);
 	while (i < len && haystack[i])
 	{
-		if(ft_strncmp(haystack + i,needle,ft_strlen(needle)) == 0
-			&& len - i > ft_strlen(needle) && haystack[i] == needle[0])
-			return ((char *)haystack + i);
+		if (haystack[i] == needle[0] && len - i >= needlelen 
+			&& ft_strncmp(haystack + i, needle, needlelen) == 0)
+			return ((char *)(haystack + i));
 		i++;
 	}
 	return (NULL);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 15:35:08 by ozahidi           #+#    #+#             */
-/*   Updated: 2023/12/10 16:38:44 by ozahidi          ###   ########.fr       */
+/*   Created: 2024/01/04 13:25:45 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/04 14:18:12 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	j = 0;
-	while (i < dstsize && dst[i])
+	while (i < ft_strlen(dst) && i < dstsize)
 		i++;
 	while (i + j + 1 < dstsize && src[j])
 	{
-		dst[i + j] = src [j];
+		dst[i + j] = src[j];
 		j++;
 	}
 	if (i != dstsize)

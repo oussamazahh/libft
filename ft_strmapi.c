@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 10:24:01 by ozahidi           #+#    #+#             */
-/*   Updated: 2024/01/10 15:16:54 by ozahidi          ###   ########.fr       */
+/*   Created: 2023/12/14 17:49:45 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/05 15:42:20 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char	*str;
-	unsigned char	*str2;
-	size_t			i;
+	char	*str;
+	char	*org;
+	size_t	i;
 
-	if (dst == src)
-		return (dst);
-	str = (unsigned char *)src;
-	str2 = (unsigned char *)dst;
+	if (!s || !f)
+		return (NULL);
+	str = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	i = 0;
-	while (i < n)
-	{
-		str2[i] = str[i];
-		i++;
-	}
-	return (dst);
+	org = str;
+	while (*s)
+		*str++ = f(i++,*s++);
+	*str = '\0';
+	return (org);
 }

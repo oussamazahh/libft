@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 11:46:43 by ozahidi           #+#    #+#             */
-/*   Updated: 2023/12/10 15:48:06 by ozahidi          ###   ########.fr       */
+/*   Created: 2024/01/04 16:16:56 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/04 16:24:56 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*s;
-	int		i;
+	size_t	i;
+	size_t	nb;
+	void	*ptr;
 
 	i = 0;
-	s = (char *)malloc(count * size);
-	if (!s)
+	nb = count * size;
+	if (count != 0 && nb / count < size)
 		return (NULL);
-	ft_bzero(s, count * size);
-	return (s);
+	ptr = malloc(nb);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nb);
+	return (ptr);
 }

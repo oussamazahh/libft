@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 15:53:14 by ozahidi           #+#    #+#             */
-/*   Updated: 2023/12/09 10:48:59 by ozahidi          ###   ########.fr       */
+/*   Created: 2024/01/04 12:37:28 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/04 12:54:26 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t		i;
-	char		*dst_o;
-	char		*src_o;
+	char	*str;
+	char	*str2;
 
-	dst_o = (char *)dst;
-	src_o = (char *)src;
-	if (len <= 0)
-		return (dst_o);
-	if (!dst_o && !src_o)
+	str = (char *)src;
+	str2 = (char *)dst;
+	if (!len)
+		return (dst);
+	if (!dst && !src)
 		return (NULL);
 	if (dst < src)
-		dst_o = ft_memcpy(dst, src, len);
+		return (ft_memcpy(dst, src, len));
 	else
 	{
-		i = len -1;
-		while (i >= 0)
+		while (len)
 		{
-			dst_o[i] = src_o[i];
-			if (i == 0)
-				break ;
-			i--;
+			len--;
+			str2[len] = str[len];
 		}
 	}
-	return (dst_o);
+	return (dst);
 }

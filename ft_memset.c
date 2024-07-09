@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ozahidi <ozahidi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 09:29:35 by ozahidi           #+#    #+#             */
-/*   Updated: 2023/12/09 09:40:06 by ozahidi          ###   ########.fr       */
+/*   Created: 2024/01/04 09:47:41 by ozahidi           #+#    #+#             */
+/*   Updated: 2024/01/04 10:22:23 by ozahidi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t			i;
 	unsigned char	*str;
+	size_t			i;
 
 	str = (unsigned char *)b;
 	i = 0;
 	while (i < len)
 	{
-		str[i] = c;
+		str[i] = (unsigned char)c;
 		i++;
 	}
-	return (str);
+	return (b);
 }
